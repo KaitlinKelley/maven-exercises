@@ -8,14 +8,19 @@ public class ApacheCommonsStringManipulation {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter something:");
         String userInput = sc.nextLine();
-        System.out.printf("You entered: \"%s\"\n", userInput);
-        if(StringUtils.isNumeric(userInput)){
-            System.out.printf("\"%s\" is a number.\n", userInput);
-        }else{
-            System.out.printf("\"%s\" is not a number.\n", userInput);
+        if(StringUtils.isBlank(userInput)){
+            System.out.println("That's just some blank space....bye....");
+        }else {
+            System.out.printf("You entered: \"%s\"\n", userInput);
+            if (StringUtils.isNumericSpace(userInput)) {
+                System.out.printf("\"%s\" is a number.\n", userInput);
+            } else {
+                System.out.printf("\"%s\" is not a number.\n", userInput);
+            }
+            System.out.println();
+            System.out.println("Is it worth it...let me work it...put my thing down");
+            System.out.println("Flip it: " + StringUtils.swapCase(userInput));
+            System.out.println("and Reverse it: " + StringUtils.reverse(userInput));
         }
-        System.out.println("Flipped Case: " + StringUtils.swapCase(userInput));
-        System.out.println("Reversed: " + StringUtils.reverse(userInput));
-
     }
 }
